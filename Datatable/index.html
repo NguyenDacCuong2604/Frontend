@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DataTable Example</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>DataTable Example</h1>
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th>BirthDay</th>
+                    <th>Score</th>
+                    <th>DRL</th>
+                    <th>So TC</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "nguyendaccuong.json",
+                dataType: "json",
+                success: function (data) {
+                    $('#example').DataTable({
+                        data: data,
+                        columns: [
+                            { "data": "id" },
+                            { "data": "name" },
+                            { "data": "gender"},
+                            { "data": "city"},
+                            { "data": "birthday"},
+                            { "data": "score"},
+                            { "data": "drl"},
+                            { "data": "so tc"}
+                        ]
+                    });
+                }
+            });
+        });
+       
+    </script>
+</body>
+
+</html>
